@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import { marked } from 'marked';
 
 function App() {
-  const [count, setCount] = useState(0)
+  let [text, setText] = useState(`
+  This is a paragraph
+  
+  # Heading 1!
+  ## Heading 2!
 
+  - list item 1
+  - list item 2
+
+  [VisitMyWebsite](https://nikeshuprety.com.np)
+  
+  Inline Code \`<div></div>\`
+  
+  **Bold Text**
+  
+  This is a block of code
+
+  ![Niku Logo](https://yt3.ggpht.com/yti/AHXOFjXDxlpJaOKwfBrJqnH7JH27ffV7h2mM_uZEznz5nSQ=s88-c-k-c0x00ffffff-no-rj-mo)
+
+  \`\`\`
+  const function(){
+    return "THis is a multiline code";
+  }
+
+  \`\`\`
+
+  `)
+
+  const markdown = marked(text ,{breaks: true});
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1 className='heading1'>Markdown Previewer</h1>
+        <h2 className='heading2'>Editor</h2>
+      <textarea value={text} onChange={e=>setText(e.target.value)} name="" id="editor" cols="68" rows="15"></textarea>
+      <h2 className='heading2'>Preview</h2>
+      <div id="preview" dangerouslySetInnerHTML={{ __html: markdown }}>
+     
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
   )
 }
 
