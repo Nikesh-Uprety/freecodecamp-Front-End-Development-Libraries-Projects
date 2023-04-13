@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { marked } from 'marked';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 function App() {
   let [text, setText] = useState(`
@@ -39,8 +40,8 @@ function App() {
       <textarea value={text} onChange={e=>setText(e.target.value)} name="" id="editor" cols="68" rows="15"></textarea>
       <h2 className='heading2'>Preview</h2>
       <div id="preview" dangerouslySetInnerHTML={{ __html: markdown }}>
-     
       </div>
+        {/* <ReactMarkdown id="preview">{text}</ReactMarkdown> */}
       </div>
   )
 }
