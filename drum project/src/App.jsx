@@ -1,33 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+
+      <div className="containerr" id="drum-machine">
+
+      <div id="display">
+
+          <div className="row">
+            <div className="col-1 bg-primary m-3 p-3 drum-pad" id="Q">
+            <audio src="./audio"></audio>
+            </div>
+            <div className="col-1 bg-primary m-3 p-3 drum-pad" id="W">W
+            <audio src=""></audio>
+            </div>
+            <div className="col-1 bg-primary m-3 p-3 drum-pad" id="E">
+              <audio src=""></audio>
+              E</div>
+          </div>
+          <div className="row">
+            <div className="col-1 bg-primary m-3 p-3 drum-pad" id='A'>
+              <audio src=""></audio>
+              A</div>
+            <div className="col-1 bg-primary m-3 p-3 drum-pad" id='S'>
+              <audio src=""></audio>
+              S</div>
+            <div className="col-1 bg-primary m-3 p-3 drum-pad" id='D'>
+              <audio src=""></audio>
+              D</div>
+          </div>
+          <div className="row">
+            <div className="col-1 bg-primary m-3 p-3 drum-pad" id='Z'>
+              <audio src=""></audio>
+              Z</div>
+            <div className="col-1 bg-primary m-3 p-3 drum-pad" id='X'>
+              <audio src=""></audio>
+              X</div>
+            <div className="col-1 bg-primary m-3 p-3 drum-pad" id='C'>
+              <audio src=""></audio>
+              C</div>
+          </div>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+    <button className="btn bg-primary">On</button>
+    <button className="btn bg-primary">OFF</button>
+   
+
+    </div>
+      
     </>
   )
 }
